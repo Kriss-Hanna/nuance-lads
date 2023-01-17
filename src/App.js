@@ -41,7 +41,7 @@ const friendOptions = [
 
 function App() {
   return (
-    <div className="App">
+    <>
       <h1>L'atelier de Stitch</h1>
       <p>Nuancier pour faire son choix</p>
       <Dropdown
@@ -57,8 +57,13 @@ function App() {
         options={friendOptions}
       />
 
-      <a href="">Retour au site</a>
-    </div>
+      <div className="container-colors">
+        <div className="color1"></div>
+        <div className="color2"></div>
+      </div>
+
+      <a href="www.latelierdestitch.net">Retour au site</a>
+    </>
   );
 }
 
