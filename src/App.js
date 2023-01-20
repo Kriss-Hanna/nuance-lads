@@ -74,7 +74,7 @@ function App() {
       </div>
 
       {colorBouclerie && (
-        <Fade direction="up">
+        <Fade direction="left">
           <img
             className="option-container"
             src={colorBouclerie}
