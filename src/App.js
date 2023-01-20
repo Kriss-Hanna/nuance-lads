@@ -87,8 +87,17 @@ for (const color of colorsArr) {
 function App() {
   const [color1, setColor1] = useState();
   const [color2, setColor2] = useState();
+  const [colorBouclerie, setColorBouclerie] = useState();
 
-  const handleOnChange = (e, data) => {
+  const handleOnChangeColor1 = (e, data) => {
+    console.log(data);
+    setColor1(data.value);
+  };
+  const handleOnChangeColor2 = (e, data) => {
+    console.log(data);
+    setColor1(data.value);
+  };
+  const handleOnChangeColorBouclerie = (e, data) => {
     console.log(data);
     setColor1(data.value);
   };
@@ -103,7 +112,7 @@ function App() {
           placeholder="Selectionne une première couleur"
           selection
           options={colorOptions}
-          onChange={handleOnChange}
+          onChange={handleOnChangeColor1}
           style={{ marginBottom: "0.5rem" }}
         />
         <Dropdown

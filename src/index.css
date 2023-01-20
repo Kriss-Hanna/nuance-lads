@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -35,7 +35,7 @@ a {
   font-family: 'Cinzel', serif !important;
   color: #D0ACB1 !important;
   font-size: 1.45rem;
-  margin-top: 3rem;
+  margin: 3rem auto;
 }
 
 .container-app {
