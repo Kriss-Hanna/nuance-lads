@@ -53,7 +53,7 @@ function App() {
 
       <div className="container-colors">
         {color1 && (
-          <Fade left>
+          <Fade direction="left">
             <img
               className="option-container"
               src={color1}
@@ -63,7 +63,7 @@ function App() {
         )}
 
         {color2 && (
-          <Fade right>
+          <Fade direction="right">
             <img
               className="option-container"
               src={color2}
@@ -74,7 +74,7 @@ function App() {
       </div>
 
       {colorBouclerie && (
-        <Fade bottom>
+        <Fade direction="up">
           <img
             className="option-container"
             src={colorBouclerie}
