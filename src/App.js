@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Dropdown } from "semantic-ui-react";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
 import { bouclerieOptions, colorOptions } from "./options";
 
 function App() {
