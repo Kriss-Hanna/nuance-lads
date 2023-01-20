@@ -35,6 +35,7 @@ a {
   color: #D0ACB1 !important;
   font-size: 1.45rem;
   margin: 3rem auto;
+  text-decoration: underline !important;
 }
 
 .container-app {
@@ -55,16 +56,20 @@ a {
   display: flex;
   justify-content: center;
  
+
 }
 
-.color1 {
-  height: 200px;
-  width: 200px;
-  border: solid 3px black;
+.option-container {
+  height: 300px;
+  width: 300px;
+  border: solid 1.5px black;
 }
 
-.color2 {
-  height: 200px;
-  width: 200px;
-  border: solid black 3px
+
+@media only screen and (max-width: 768px) {
+  .option-container {
+    height: 160px;
+    width: 160px;
+    border: solid 1.5px black;
+  }
 }

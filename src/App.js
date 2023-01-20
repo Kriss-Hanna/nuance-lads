@@ -1,107 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Dropdown } from "semantic-ui-react";
 import Fade from "react-reveal/Fade";
-
-const colorsArr = [
-  "Rouge",
-  "Rose Passion",
-  "Violet Pastel",
-  "Rose Fluo",
-  "Rose pastel",
-  "Corail",
-  "Orange",
-  "Pêche",
-  "Jaune Fluo",
-  "Jaune",
-  "Tan",
-  "Or",
-  "Vert Fluo",
-  "Vert Pastel",
-  "Vert Pomme",
-  "Caraïbe",
-  "Sarcelle",
-  "Lagune",
-  "Vert Foncé",
-  "Navy",
-  "Violet",
-  "Bleu Foncé",
-  "Bleu Pétrole",
-  "Bleu Clair",
-  "Bleu Skyan",
-  "Bleu Pastel",
-  "Beige",
-  "Militaire",
-  "Marron Clair",
-  "Lie de vin",
-  "Coyote",
-  "Marron",
-  "Marron foncé",
-  "Blanc",
-  "Gris",
-  "Noir",
-  "Émeraude",
-  "Orange Brûlée",
-  "Jaune Pastel",
-  "Saddle",
-  "Or Clair",
-  "Argent",
-  "Or Rose",
-  "Améthyste",
-];
-
-const bouclerieArr = [
-  {
-    key: "Or",
-    text: "Or",
-    value: "Or",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZC79ojqD8W6yHpOI5SO0n4GLkv3GyR5GDjg&usqp=CAU",
-  },
-  {
-    key: "Acier inoxydable",
-    text: "Acier inoxydable",
-    value: "Acier inoxydable",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZC79ojqD8W6yHpOI5SO0n4GLkv3GyR5GDjg&usqp=CAU",
-  },
-  {
-    key: "Laiton vieilli",
-    text: "Laiton vieilli",
-    value: "Laiton vieilli",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZC79ojqD8W6yHpOI5SO0n4GLkv3GyR5GDjg&usqp=CAU",
-  },
-];
-
-const colorOptions = [];
-
-for (const color of colorsArr) {
-  colorOptions.push({
-    key: color,
-    text: color,
-    value: color,
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZC79ojqD8W6yHpOI5SO0n4GLkv3GyR5GDjg&usqp=CAU",
-  });
-}
+import { bouclerieOptions, colorOptions } from "./options";
 
 function App() {
-  const [color1, setColor1] = useState();
-  const [color2, setColor2] = useState();
-  const [colorBouclerie, setColorBouclerie] = useState("trf");
+  const [color1, setColor1] = useState("");
+  const [color2, setColor2] = useState("");
+  const [colorBouclerie, setColorBouclerie] = useState("");
 
   const handleOnChangeColor1 = (e, data) => {
-    console.log(data);
     setColor1(data.value);
   };
   const handleOnChangeColor2 = (e, data) => {
-    console.log(data);
     setColor2(data.value);
   };
   const handleOnChangeColorBouclerie = (e, data) => {
-    console.log(data);
     setColorBouclerie(data.value);
   };
+
+  /*   useEffect(() => {
+    handleOnChangeColor1();
+  }, [color1, color2, colorBouclerie]); */
 
   return (
     <div className="container-app">
@@ -114,51 +33,52 @@ function App() {
           selection
           options={colorOptions}
           onChange={handleOnChangeColor1}
-          style={{ marginBottom: "0.5rem", minWidth: "10rem" }}
+          style={{ marginBottom: "0.5rem", minWidth: "270px" }}
         />
         <Dropdown
           placeholder="Sélectionne une deuxième couleur"
           selection
           options={colorOptions}
-          onChange={(e) => console.log(e)}
-          style={{ marginBottom: "0.5rem", minWidth: "10rem" }}
+          onChange={handleOnChangeColor2}
+          style={{ marginBottom: "0.5rem", minWidth: "270px" }}
         />
         <Dropdown
           placeholder="Sélectionne une couleur de bouclerie"
           selection
-          options={bouclerieArr}
-          onChange={(e) => console.log(e)}
-          style={{ marginBottom: "0.5rem", minWidth: "10rem" }}
+          options={bouclerieOptions}
+          onChange={handleOnChangeColorBouclerie}
+          style={{ marginBottom: "0.5rem", minWidth: "270px" }}
         />
       </div>
 
       <div className="container-colors">
-        <Fade left>
-          <img
-            className="color1"
-            /*  src={color1} */
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADDCAMAAACxkIT5AAAAA1BMVEUAAP+KeNJXAAAASElEQVR4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+BsYMAAFjd3WkAAAAAElFTkSuQmCC"
-            alt="Première couleur sélectionnée"
-          />
-        </Fade>
+        {color1 && (
+          <Fade left>
+            <img
+              className="option-container"
+              src={color1}
+              alt="Première couleur sélectionnée"
+            />
+          </Fade>
+        )}
 
-        <Fade right>
-          <img
-            className="color2"
-            /*  src={color2} */
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX/AAAZ4gk3AAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
-            alt="Deuxième couleur sélectionnée"
-          />
-        </Fade>
+        {color2 && (
+          <Fade right>
+            <img
+              className="option-container"
+              src={color2}
+              alt="Deuxième couleur sélectionnée"
+            />
+          </Fade>
+        )}
       </div>
 
       {colorBouclerie && (
         <Fade bottom>
           <img
-            className="color2"
-            /*  src={color2} */
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX/AAAZ4gk3AAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
-            alt="Deuxième couleur sélectionnée"
+            className="option-container"
+            src={colorBouclerie}
+            alt="Couleur bouclerie sélectionnée"
             style={{ marginTop: "0.5rem" }}
           />
         </Fade>
@@ -171,6 +91,9 @@ function App() {
       >
         Retour à la boutique
       </a>
+
+      <p>L'atelier de Stitch © - 2023</p>
+      <p>Tous droits reservés </p>
     </div>
   );
 }
