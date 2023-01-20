@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Dropdown } from "semantic-ui-react";
+import Fade from "react-reveal/Fade";
 
 const colorsArr = [
   "Rouge",
@@ -87,7 +88,7 @@ for (const color of colorsArr) {
 function App() {
   const [color1, setColor1] = useState();
   const [color2, setColor2] = useState();
-  const [colorBouclerie, setColorBouclerie] = useState();
+  const [colorBouclerie, setColorBouclerie] = useState("trf");
 
   const handleOnChangeColor1 = (e, data) => {
     console.log(data);
@@ -95,11 +96,11 @@ function App() {
   };
   const handleOnChangeColor2 = (e, data) => {
     console.log(data);
-    setColor1(data.value);
+    setColor2(data.value);
   };
   const handleOnChangeColorBouclerie = (e, data) => {
     console.log(data);
-    setColor1(data.value);
+    setColorBouclerie(data.value);
   };
 
   return (
@@ -109,49 +110,59 @@ function App() {
 
       <div className="container-dropdown">
         <Dropdown
-          placeholder="Selectionne une première couleur"
+          placeholder="Sélectionne une première couleur"
           selection
           options={colorOptions}
           onChange={handleOnChangeColor1}
-          style={{ marginBottom: "0.5rem" }}
+          style={{ marginBottom: "0.5rem", minWidth: "10rem" }}
         />
         <Dropdown
-          placeholder="Selectionne une deuxième couleur"
+          placeholder="Sélectionne une deuxième couleur"
           selection
           options={colorOptions}
           onChange={(e) => console.log(e)}
-          style={{ marginBottom: "0.5rem" }}
+          style={{ marginBottom: "0.5rem", minWidth: "10rem" }}
         />
         <Dropdown
-          placeholder="Selectionne une couleur bouclerie"
+          placeholder="Sélectionne une couleur de bouclerie"
           selection
           options={bouclerieArr}
           onChange={(e) => console.log(e)}
-          style={{ marginBottom: "0.5rem" }}
+          style={{ marginBottom: "0.5rem", minWidth: "10rem" }}
         />
       </div>
 
       <div className="container-colors">
-        <img
-          className="color1"
-          /*  src={color1} */
-          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADDCAMAAACxkIT5AAAAA1BMVEUAAP+KeNJXAAAASElEQVR4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+BsYMAAFjd3WkAAAAAElFTkSuQmCC"
-          alt="Première couleur sélectionnée"
-        />
-        <img
-          className="color2"
-          /*  src={color2} */
-          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX/AAAZ4gk3AAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
-          alt="Deuxième couleur sélectionnée"
-        />
+        <Fade left>
+          <img
+            className="color1"
+            /*  src={color1} */
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADDCAMAAACxkIT5AAAAA1BMVEUAAP+KeNJXAAAASElEQVR4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+BsYMAAFjd3WkAAAAAElFTkSuQmCC"
+            alt="Première couleur sélectionnée"
+          />
+        </Fade>
+
+        <Fade right>
+          <img
+            className="color2"
+            /*  src={color2} */
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX/AAAZ4gk3AAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
+            alt="Deuxième couleur sélectionnée"
+          />
+        </Fade>
       </div>
-      <img
-        className="color2"
-        /*  src={color2} */
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX/AAAZ4gk3AAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
-        alt="Deuxième couleur sélectionnée"
-        style={{ marginTop: "0.5rem" }}
-      />
+
+      {colorBouclerie && (
+        <Fade bottom>
+          <img
+            className="color2"
+            /*  src={color2} */
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX/AAAZ4gk3AAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
+            alt="Deuxième couleur sélectionnée"
+            style={{ marginTop: "0.5rem" }}
+          />
+        </Fade>
+      )}
 
       <a
         href="https://www.latelierdestitch.net/"
