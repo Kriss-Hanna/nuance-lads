@@ -48,6 +48,30 @@ const colorsArr = [
   "Améthyste",
 ];
 
+const bouclerieArr = [
+  {
+    key: "Or",
+    text: "Or",
+    value: "Or",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZC79ojqD8W6yHpOI5SO0n4GLkv3GyR5GDjg&usqp=CAU",
+  },
+  {
+    key: "Acier inoxydable",
+    text: "Acier inoxydable",
+    value: "Acier inoxydable",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZC79ojqD8W6yHpOI5SO0n4GLkv3GyR5GDjg&usqp=CAU",
+  },
+  {
+    key: "Laiton vieilli",
+    text: "Laiton vieilli",
+    value: "Laiton vieilli",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZC79ojqD8W6yHpOI5SO0n4GLkv3GyR5GDjg&usqp=CAU",
+  },
+];
+
 const colorOptions = [];
 
 for (const color of colorsArr) {
@@ -74,18 +98,29 @@ function App() {
       <h1>L'atelier de Stitch</h1>
       <p>Nuancier pour faire son choix</p>
 
-      <Dropdown
-        placeholder="Selectionne une première couleur"
-        selection
-        options={colorOptions}
-        onChange={handleOnChange}
-      />
-      <Dropdown
-        placeholder="Selectionne une deuxieme couleur"
-        selection
-        options={colorOptions}
-        onChange={(e) => console.log(e)}
-      />
+      <div className="container-dropdown">
+        <Dropdown
+          placeholder="Selectionne une première couleur"
+          selection
+          options={colorOptions}
+          onChange={handleOnChange}
+          style={{ marginBottom: "0.5rem" }}
+        />
+        <Dropdown
+          placeholder="Selectionne une deuxième couleur"
+          selection
+          options={colorOptions}
+          onChange={(e) => console.log(e)}
+          style={{ marginBottom: "0.5rem" }}
+        />
+        <Dropdown
+          placeholder="Selectionne une couleur bouclerie"
+          selection
+          options={bouclerieArr}
+          onChange={(e) => console.log(e)}
+          style={{ marginBottom: "0.5rem" }}
+        />
+      </div>
 
       <div className="container-colors">
         <img
@@ -101,6 +136,13 @@ function App() {
           alt="Deuxième couleur sélectionnée"
         />
       </div>
+      <img
+        className="color2"
+        /*  src={color2} */
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX/AAAZ4gk3AAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
+        alt="Deuxième couleur sélectionnée"
+        style={{ marginTop: "0.5rem" }}
+      />
 
       <a
         href="https://www.latelierdestitch.net/"

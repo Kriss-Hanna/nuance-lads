@@ -22,6 +22,7 @@ h1 {
   font-family: 'Sacramento', cursive !important;
   font-size: 4rem !important;
   color: #E8D8EE;
+  margin-top: 0.75em !important;
 }
 
 p {
@@ -43,20 +44,26 @@ a {
   align-items: center;
 }
 
+.container-dropdown {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
 .container-colors {
   display: flex;
   justify-content: center;
-  align-items: center;
+ 
 }
 
 .color1 {
-  height: 300px;
-  width: 300px;
-  border: solid 1px black;
+  height: 200px;
+  width: 200px;
+  border: solid 3px black;
 }
 
 .color2 {
-  height: 300px;
-  width: 300px;
-  border: solid black 1px
+  height: 200px;
+  width: 200px;
+  border: solid black 3px
 }
